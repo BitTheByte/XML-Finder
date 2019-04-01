@@ -2,8 +2,8 @@ from burp import IBurpExtender
 from burp import IHttpListener
 from burp import ITab
 from burp import IScanIssue
-
 import re
+
 matches = [
 	r'<\w+>.*?<\/\w+>',
 	r'<.* \w+=.*\/>',
@@ -60,7 +60,7 @@ class CustomIssue(IScanIssue):
 class BurpExtender(IBurpExtender, IHttpListener, ITab):
 
     def registerExtenderCallbacks(self, callbacks):
-
+	
         self.callbacks = callbacks
         self.callbacks.setExtensionName("BIT/XML-Finder")
         self.callbacks.registerHttpListener(self)
